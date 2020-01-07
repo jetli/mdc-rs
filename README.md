@@ -1,2 +1,6 @@
 # mdc-rs
-Material Components for Rust
+Material Design Components for Rust
+
+## Resources
+
+ - https://github.com/Follpvosten/yew-mdc
