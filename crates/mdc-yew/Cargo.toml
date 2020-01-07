@@ -15,3 +15,5 @@ documentation = "https://github.com/jetli/mdc-rs"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+mdc-sys = { path = "../mdc-sys", version = "0.1.0"}
+yew = { version = "0.10", default-features = false }
