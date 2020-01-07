@@ -1,6 +1,6 @@
 [package]
 name = "mdc-yew"
-version = "0.1.0"
+version = "0.1.1"
 authors = ["Jet Li <jing.i.qin@icloud.com>"]
 edition = "2018"
 categories = ["wasm"]
@@ -15,5 +15,5 @@ documentation = "https://github.com/jetli/mdc-rs"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-mdc-sys = { path = "../mdc-sys", version = "0.1.0"}
+mdc-sys = { path = "../mdc-sys", version = "0.1.1"}
 yew = { version = "0.10", default-features = false }
