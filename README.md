@@ -8,3 +8,4 @@ Material Design Components for Rust
 ## Resources
 
  - https://github.com/Follpvosten/yew-mdc
+ - https://github.com/AlephAlpha/muicss-yew
