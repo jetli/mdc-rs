@@ -9,6 +9,7 @@ Material Design Components for Rust
 
 - https://github.com/material-components/material-components-web
 - https://github.com/material-components/material-components-web-react
+- https://material-components.github.io/material-components-web-catalog/#/
 - https://github.com/jamesmfriedman/rmwc
 - https://github.com/pgbross/vue-material-adapter
 - https://github.com/material-components/material-components-web/blob/master/docs/integrating-into-frameworks.md
