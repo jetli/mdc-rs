@@ -20,7 +20,9 @@ impl Component for Home {
         html! {
             <div class="app">
                 <header class="app-header">
-                    <Button id="my_button" ripple=true text="This is a button"/>
+                    <Button>
+                        { "This is a button" }
+                    </Button>
                     <a
                         class="app-logo"
                         href="https://yew.rs"

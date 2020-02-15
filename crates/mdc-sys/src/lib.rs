@@ -3,10 +3,6 @@
 use wasm_bindgen::prelude::*;
 use web_sys::{Element, Event};
 
-pub fn get_element_by_id(id: &str) -> Option<web_sys::Element> {
-    web_sys::window()?.document()?.get_element_by_id(id)
-}
-
 #[wasm_bindgen(module = "@material/base/component/index")]
 extern "C" {
     pub type MDCComponent;
