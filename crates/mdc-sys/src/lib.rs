@@ -31,7 +31,7 @@ extern "C" {
 
     #[wasm_bindgen(method, getter)]
     pub fn unbounded(this: &MDCRipple) -> bool;
-    
+
     #[wasm_bindgen(method, setter)]
     pub fn set_unbounded(this: &MDCRipple, unbounded: bool);
 
