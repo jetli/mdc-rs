@@ -1,26 +1,22 @@
-use mdc_sys::{get_element_by_id, MDCRipple};
+use mdc_sys::MDCRipple;
+use web_sys::Element;
 use yew::prelude::*;
 
 pub struct Button {
-    id: String,
     ripple: Option<MDCRipple>,
     props: Props,
     link: ComponentLink<Self>,
+    node_ref: NodeRef,
 }
 
 #[derive(Properties, Debug, Clone)]
 pub struct Props {
     pub children: Children,
-    #[props(required)]
-    pub id: String,
-    #[props(required)]
-    pub text: String,
-    pub ripple: bool,
-    pub onclick: Option<Callback<()>>,
+    pub onclick: Option<Callback<MouseEvent>>,
 }
 
 pub enum Msg {
-    Clicked,
+    Clicked(MouseEvent),
 }
 
 impl Component for Button {
@@ -29,25 +25,25 @@ impl Component for Button {
 
     fn create(props: Self::Properties, link: ComponentLink<Self>) -> Self {
         Button {
-            id: props.id.to_owned(),
             ripple: None,
             props,
             link,
+            node_ref: NodeRef::default(),
         }
     }
 
     fn mounted(&mut self) -> ShouldRender {
-        if self.props.ripple {
-            self.ripple = get_element_by_id(&self.id).map(MDCRipple::new);
+        if let Some(root) = self.node_ref.try_into::<Element>() {
+            self.ripple = Some(MDCRipple::new(root));
         }
         false
     }
 
     fn update(&mut self, msg: Self::Message) -> ShouldRender {
         match msg {
-            Msg::Clicked => {
+            Msg::Clicked(ev) => {
                 if let Some(callback) = &self.props.onclick {
-                    callback.emit(());
+                    callback.emit(ev);
                 }
             }
         }
@@ -55,27 +51,14 @@ impl Component for Button {
     }
 
     fn view(&self) -> Html {
-        let ripple = if self.props.ripple {
-            html! {
-                <div class="mdc-button__ripple"></div>
-            }
-        } else {
-            html! {}
-        };
-
-        let inner = html! { <>
-            { self.props.children.render() }
-            <span class="mdc-button__label">{ &self.props.text }</span>
-        </> };
-
-        let onclick = self.link.callback(|_| Msg::Clicked);
+        let onclick = self.link.callback(Msg::Clicked);
 
         html! {
             <button class="mdc-button mdc-button--raised"
-                    id=self.id
-                    onclick=onclick >
-                { ripple }
-                { inner }
+                ref=self.node_ref.clone()
+                onclick=onclick >
+                <div class="mdc-button__ripple"></div>
+                <span class="mdc-button__label">{ self.props.children.render() }</span>
             </button>
         }
     }
