@@ -1,0 +1,19 @@
+{
+  "author": "Jet Li <jing.i.qin@icloud.com>",
+  "name": "yew-app",
+  "version": "0.1.0",
+  "scripts": {
+    "build": "WASM_PACK_PROFILE=release parcel build static/index.html --public-url ./",
+    "start": "WASM_PACK_PROFILE=dev parcel static/index.html -p 8000 --open",
+    "test": "wasm-pack test --headless --safari --chrome --firefox"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.12.4",
+    "parcel-plugin-wasm.rs": "^1.2.15",
+    "sass": "^1.24.2",
+    "typescript": "^3.7.4"
+  },
+  "dependencies": {
+    "@material/button": "^4.0.0"
+  }
+}

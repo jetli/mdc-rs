@@ -12,6 +12,7 @@ pub struct Button {
 #[derive(Properties, Debug, Clone)]
 pub struct Props {
     pub children: Children,
+    #[prop_or_default]
     pub onclick: Option<Callback<MouseEvent>>,
 }
 
@@ -33,7 +34,7 @@ impl Component for Button {
     }
 
     fn mounted(&mut self) -> ShouldRender {
-        if let Some(root) = self.node_ref.try_into::<Element>() {
+        if let Some(root) = self.node_ref.cast::<Element>() {
             self.ripple = Some(MDCRipple::new(root));
         }
         false
