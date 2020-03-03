@@ -5,7 +5,7 @@ Material Design Components for Rust
 
 - https://jetli.github.io/mdc-rs/
 
-## Related projects
+## Alternatives
 
 - https://github.com/Follpvosten/yew-mdc
 - https://github.com/AlephAlpha/muicss-yew
