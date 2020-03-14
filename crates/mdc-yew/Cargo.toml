@@ -16,7 +16,7 @@ documentation = "https://github.com/jetli/mdc-rs"
 
 [dependencies]
 mdc-sys = { path = "../mdc-sys", version = "0.1.1"}
-yew = { version="0.13.0", features = ["web_sys"] }
+yew = { version="0.14.0", features = ["web_sys"] }
 
 [dependencies.web-sys]
 version = "0.3"
